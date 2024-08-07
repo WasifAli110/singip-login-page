@@ -11,6 +11,22 @@ import {
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
 
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  serverTimestamp,
+  getDocs,
+  onSnapshot,
+} from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+} from "https://www.gstatic.com/firebasejs/10.12.4/firebase-storage.js";
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCWPr367Ehb2GbeyxR6oeLMvYPEZRC_Uc8",
@@ -30,7 +46,11 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
 
-// export let testing = "shehzad"
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+
+// Get a reference to the storage service, which is used to create references in your storage bucket
+const storage = getStorage(app);
 
 export {
   auth,
@@ -38,6 +58,14 @@ export {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  db,
+  collection,
+  addDoc,
+  serverTimestamp,
+  getDocs,
+  onSnapshot,
+  storage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
 };
-
-// d/b signup & signin & login
